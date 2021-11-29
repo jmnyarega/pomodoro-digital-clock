@@ -1,0 +1,140 @@
+:root {
+  --hue: 250;
+  --saturation: 50%;
+  --lightness: 50%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Digital font";
+  src: url(./DIGITALDREAMFAT.ttf) format("truetype");
+}
+
+body {
+  --lightness: 25%;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+  color: white;
+
+  display: grid;
+  justify-content: center;
+
+  margin-top: 5rem;
+  min-height: calc(100vh - 5rem);
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+  color: white;
+  padding: 0.1em;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+button:hover,
+button:focus {
+  opacity: 0.5;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.title::after {
+  --lightness: 15%;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+}
+
+/*
+ *
+ * Clock =====
+ *
+ */
+
+.clock__screen {
+  --lightness: 50%;
+
+  display: grid;
+  grid-template-areas: "label" "clock";
+
+  font-family: "Digital font", serif;
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: hsl(var(--hue), var(--saturation), var(--lightness));
+  border-radius: 0.3rem;
+}
+
+.clock__status {
+  --hue: 90;
+  --lightness: 10%;
+  color: hsl(var(--hue), var(--saturation), var(--lightness));
+  margin-bottom: 0.3rem;
+  font-size: 0.5rem;
+
+  grid-area: label;
+}
+
+.clock__time {
+  justify-self: center;
+}
+
+.clock__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 1.2rem;
+}
+
+/*
+ * Settings
+ *
+ */
+
+.settings__buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+/*
+ *
+ * Session + Break
+ */
+
+.break,
+.session {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.session__length,
+.break__length {
+  min-width: 4ch;
+  text-align: center;
+}
+
+.break > span:first-child,
+.session > span:first-child {
+  min-width: 7ch;
+}
+
+.break {
+  margin-bottom: 1rem;
+}
